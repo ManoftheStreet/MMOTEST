@@ -11,13 +11,11 @@ public class Managers : MonoBehaviour
     public static Managers instance { get { Init();  return s_instance; } }
 
 
-    // Start is called before the first frame update
     void Start()
     {
         Init();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
