@@ -6,13 +6,30 @@ using UnityEngine;
 public class InputManager
 {
     public Action KeyAction = null; //Action 델리게이트
+    public Action<Define.MouseEvent> MouseAction = null;
+
+    bool _pressed = false;
     
     public void OnUpdate()
     {
-        if (Input.anyKey == false)
-            return;
-
-        if (KeyAction != null)//입력된 키가 있다면
-            KeyAction.Invoke();//Invoke : 호출
+        if (Input.anyKey && KeyAction != null)
+            KeyAction.Invoke();
+        
+        if (MouseAction != null)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                MouseAction.Invoke(Define.MouseEvent.Press);
+                _pressed = true;
+            }
+            else
+            {
+                if(_pressed)
+                {
+                    MouseAction.Invoke(Define.MouseEvent.Click);
+                    _pressed = false;
+                }
+            }
+        }
     }
 }

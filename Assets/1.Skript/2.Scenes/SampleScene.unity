@@ -379,8 +379,8 @@ GameObject:
   - component: {fileID: 782485512}
   - component: {fileID: 782485511}
   - component: {fileID: 782485510}
-  m_Layer: 9
-  m_Name: Wall
+  m_Layer: 8
+  m_Name: Cube (1)
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -465,8 +465,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 782485509}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.02, y: 0.76, z: -2.98}
-  m_LocalScale: {x: 12.776, y: 13.739875, z: 0.63694}
+  m_LocalPosition: {x: 0, y: 0.76, z: 4.594}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
