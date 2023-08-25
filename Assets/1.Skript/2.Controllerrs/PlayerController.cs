@@ -10,8 +10,6 @@ public class PlayerController : MonoBehaviour
 
     Vector3 _destPos;
 
-    float wait_run_ratio = 0;
-
     public enum PlayerState
     {
         Die,
@@ -26,6 +24,8 @@ public class PlayerController : MonoBehaviour
         Managers.input.KeyAction += Onkeyboard;//다시구독*/
         Managers.input.MouseAction -= OnMouseClicked;//마우스 액션 구독
         Managers.input.MouseAction += OnMouseClicked;
+
+        Managers.Resource.Instantiate("UI/UI_Button");
     }
 
     void UpdateDie()
@@ -48,19 +48,15 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(dir), 20 * Time.deltaTime);
         }
         //애니메이션
-        wait_run_ratio = Mathf.Lerp(wait_run_ratio, 1, 10.0f * Time.deltaTime);
         Animator anim = GetComponent<Animator>();
-        anim.SetFloat("wait_run_ratio", wait_run_ratio);
-        anim.Play("WAIT_RUN");
+        anim.SetFloat("speed", _speed);
     }
 
     void UpdateIdle()
     {
         //애니메이션
-        wait_run_ratio = Mathf.Lerp(wait_run_ratio, 0, 10.0f * Time.deltaTime);
         Animator anim = GetComponent<Animator>();
-        anim.SetFloat("wait_run_ratio", wait_run_ratio);
-        anim.Play("WAIT_RUN");
+        anim.SetFloat("speed", 0);
     }
     void Update()
     {
