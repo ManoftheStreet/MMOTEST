@@ -24,8 +24,6 @@ public class PlayerController : MonoBehaviour
         Managers.input.KeyAction += Onkeyboard;//다시구독*/
         Managers.input.MouseAction -= OnMouseClicked;//마우스 액션 구독
         Managers.input.MouseAction += OnMouseClicked;
-
-        Managers.Resource.Instantiate("UI/UI_Button");
     }
 
     void UpdateDie()
