@@ -22,8 +22,8 @@ public class PlayerController : MonoBehaviour
     {
         /*Managers.input.KeyAction -= Onkeyboard;//먼저 키액션 구독해제
         Managers.input.KeyAction += Onkeyboard;//다시구독*/
-        Managers.input.MouseAction -= OnMouseClicked;//마우스 액션 구독
-        Managers.input.MouseAction += OnMouseClicked;
+        Managers.Input.MouseAction -= OnMouseClicked;//마우스 액션 구독
+        Managers.Input.MouseAction += OnMouseClicked;
     }
 
     void UpdateDie()

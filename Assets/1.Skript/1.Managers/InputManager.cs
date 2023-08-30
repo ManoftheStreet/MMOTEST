@@ -29,11 +29,17 @@ public class InputManager
             else
             {
                 if(_pressed)
-                {
+                
                     MouseAction.Invoke(Define.MouseEvent.Click);
-                    _pressed = false;
-                }
+
+                _pressed = false;
             }
         }
+    }
+
+    public void Clear()
+    {
+        KeyAction = null;
+        MouseAction = null;
     }
 }
