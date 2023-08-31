@@ -12,18 +12,13 @@ public class GameScene : BaseScene
 
         SceneType = Define.Scene.Game;
 
-        for (int i = 0; i < 5; i++)
-        {
-            Managers.Resource.Instantiate("UnityChan");
-        }
+        Dictionary<int, Stat> dict = Managers.Data.StatDict;
+
     }
 
     public override void Clear()
     {
         throw new System.NotImplementedException();
     }
-
-
-
 
 }
