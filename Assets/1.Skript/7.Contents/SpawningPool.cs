@@ -16,7 +16,7 @@ public class SpawningPool : MonoBehaviour
     Vector3 _spawnPos;
 
     [SerializeField]
-    float _spawnRaidus = 15.0f;
+    float _spawnRadius = 15.0f;
 
     [SerializeField]
     float _spawnTime = 5.0f;
@@ -41,14 +41,14 @@ public class SpawningPool : MonoBehaviour
     IEnumerator ReserveSpawn()
     {
         _reserveCount++;
-        yield return new WaitForSeconds(Random.Range(0,_spawnTime));
+        yield return new WaitForSeconds(Random.Range(0, _spawnTime));
         GameObject obj = Managers.Game.Spawn(Define.WorldObject.Monster, "Knight");
-        NavMeshAgent nma = obj.GetComponent<NavMeshAgent>();
+        NavMeshAgent nma = obj.GetOrAddComponent<NavMeshAgent>();
 
         Vector3 randPos;
         while (true)
         {
-            Vector3 randDir = Random.insideUnitSphere * Random.Range(0,_spawnRaidus);
+            Vector3 randDir = Random.insideUnitSphere * Random.Range(0, _spawnRadius);
             randDir.y = 0;
             randPos = _spawnPos + randDir;
 

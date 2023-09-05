@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -38,7 +37,7 @@ public class GameManagerEx
     {
         BaseController bc = go.GetComponent<BaseController>();
 
-        if (bc != null)
+        if (bc == null)
             return Define.WorldObject.Unknown;
 
         return bc.WorldObjectType;
