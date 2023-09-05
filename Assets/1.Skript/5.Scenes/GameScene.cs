@@ -14,11 +14,18 @@ public class GameScene : BaseScene
 
         gameObject.GetOrAddComponent<CursorController>();
 
+        GameObject player = Managers.Game.Spawn(Define.WorldObject.Player,"UnityChan");
+        Camera.main.gameObject.GetOrAddComponent<CameraController>().SetPlayer(player);
+
+        GameObject go = new GameObject { name = "SpawningPool" };
+        SpawningPool pool = go.GetOrAddComponent<SpawningPool>();
+        pool.SetKeepMosterCount(5);
+
     }
 
     public override void Clear()
     {
-        throw new System.NotImplementedException();
+        
     }
 
 }

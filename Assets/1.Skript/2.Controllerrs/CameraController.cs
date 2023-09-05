@@ -13,6 +13,8 @@ public class CameraController : MonoBehaviour
     [SerializeField]
     GameObject _player;
 
+    public void SetPlayer(GameObject player) { _player = player; }
+
     void Start()
     {
         
@@ -22,8 +24,13 @@ public class CameraController : MonoBehaviour
     {
         if(_mode == Define.CameraMode.QuarterView)
         {
+            if(_player.isValid() == false)
+            {
+                return;
+            }
+            
             RaycastHit hit;
-            if (Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, LayerMask.GetMask("Wall")))//플레이어에서 카메라쪽으로 레이를 쏴서 장애물이있다면
+            if (Physics.Raycast(_player.transform.position, _delta, out hit, _delta.magnitude, 1<<(int)Define.Layer.Block))//플레이어에서 카메라쪽으로 레이를 쏴서 장애물이있다면
             {
                 float dist = (hit.point - _player.transform.position).magnitude * 0.8f;
                 transform.position = _player.transform.position + _delta.normalized * dist;
